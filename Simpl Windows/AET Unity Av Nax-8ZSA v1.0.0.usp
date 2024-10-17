@@ -1,0 +1,122 @@
+#DEFINE_CONSTANT MAX_SOURCES 16
+#DEFINE_CONSTANT MAX_ZONES 8
+/*
+Programmer: Anthony Evert
+Contact: tony722@gmail.com / 509-690-5360
+*/
+
+/*******************************************************************************************
+  Compiler Directives
+*******************************************************************************************/
+// #ENABLE_DYNAMIC
+// #SYMBOL_NAME ""
+// #HINT ""
+// #DEFINE_CONSTANT
+#CATEGORY "46" "Unity Av" // Custom
+// #PRINT_TO_TRACE
+// #DIGITAL_EXPAND OutputsWithParams
+// #ANALOG_SERIAL_EXPAND 
+// #OUTPUT_SHIFT 
+// #HELP_PDF_FILE ""
+#DEFAULT_VOLATILE     
+#ENABLE_STACK_CHECKING
+// #ENABLE_TRACE
+// #ENCODING_ASCII
+// #ENCODING_UTF16
+// #ENCODING_INHERIT_FROM_PARENT
+// #ENCODING_INHERIT_FROM_PROGRAM
+/*
+#HELP_BEGIN
+
+#HELP_END
+*/
+
+/*******************************************************************************************
+  Include Libraries
+*******************************************************************************************/
+#USER_SIMPLSHARP_LIBRARY "AET.Unity.Av.NaxRouter"
+
+/*******************************************************************************************
+  DIGITAL, ANALOG and SERIAL INPUTS and OUTPUTS
+*******************************************************************************************/
+DIGITAL_INPUT _Skip_, _Skip_;
+
+DIGITAL_OUTPUT _Skip_, _Skip_;
+ANALOG_OUTPUT Routing_Zone[MAX_ZONES];
+ANALOG_OUTPUT _Skip_;
+ANALOG_OUTPUT RX_Zone_Port[MAX_ZONES];
+STRING_OUTPUT RX_Zone_MulticastAddress[MAX_ZONES];
+ANALOG_OUTPUT _Skip_;
+ANALOG_OUTPUT TX_Source_Port[MAX_SOURCES];
+STRING_OUTPUT TX_Source_MulticastAddress[MAX_SOURCES, MAX_SOURCES];
+
+/*******************************************************************************************
+  Parameters
+*******************************************************************************************/
+
+INTEGER_PARAMETER Unit;
+//More parameters can be added to this list
+#BEGIN_PARAMETER_PROPERTIES Unit
+  propValidUnits = unitDecimal;
+  propDefaultUnit = unitDecimal;
+  propList =  { 0d, "Zones 1-8, Sources 1-16"},
+							{ 1d, "Zones 9-16, Sources 17-32"},
+							{ 2d, "Zones 17-24, Sources 33-48"},
+							{ 3d, "Zones 25-32, Sources 49-64"},
+							{ 4d, "Zones 33-40, Sources 65-80"},
+							{ 5d, "Zones 41-48, Sources 81-96"},
+							{ 6d, "Zones 49-56, Sources 97-112"},
+							{ 7d, "Zones 57-64, Sources 113-128"},
+							{ 8d, "Zones 65-72, Sources 129-144"},
+							{ 9d, "Zones 73-80, Sources 145-160"},
+							{ 10d, "Zones 81-88, Sources 161-176"},
+							{ 11d, "Zones 89-96, Sources 177-192"},
+							{ 12d, "Zones 97-104, Sources 193-208"},
+							{ 13d, "Zones 105-112, Sources 209-224"},
+							{ 14d, "Zones 113-120, Sources 225-240"},
+							{ 15d, "Zones 121-128, Sources 241-256"},
+							{ 16d, "Zones 129-136, Sources 257-272"},
+							{ 17d, "Zones 137-144, Sources 273-288"},
+							{ 18d, "Zones 145-152, Sources 289-304"},
+							{ 19d, "Zones 153-160, Sources 305-320"},
+							{ 20d, "Zones 161-168, Sources 321-336"},
+							{ 21d, "Zones 169-176, Sources 337-352"},
+							{ 22d, "Zones 177-184, Sources 353-368"},
+							{ 23d, "Zones 185-192, Sources 369-384"};													
+#END_PARAMETER_PROPERTIES
+
+
+/*******************************************************************************************
+  Global Variables
+*******************************************************************************************/
+NaxSwitcherSplus nax;
+
+/*******************************************************************************************
+  Functions
+*******************************************************************************************/
+callback function SetRouting(integer index, integer value) { Routing_Zone[index] = value; }
+callback function SetRxZonePort(integer index, integer value) { RX_Zone_Port[index] = value; }
+callback function SetRxZoneMulticastAddress(integer index, string value) { RX_Zone_MulticastAddress[index] = value; }
+callback function SetTxSourcePort(integer index, integer value) { TX_Source_Port[index] = value; }
+callback function SetTxSourceMulticastAddress(integer index, string value) { TX_Source_MulticastAddress[index] = value; }
+                                                                            
+callback function Init() { 
+	RegisterDelegate(nax, SetRouting, SetRouting);
+	RegisterDelegate(nax, SetRxZonePort, SetRxZonePort);
+	RegisterDelegate(nax, SetRxZoneMulticastAddress, SetRxZoneMulticastAddress);
+	RegisterDelegate(nax, SetTxSourcePort, SetTxSourcePort);
+	RegisterDelegate(nax, SetTxSourceMulticastAddress, SetTxSourceMulticastAddress);
+}
+
+/*******************************************************************************************
+  Event Handlers
+*******************************************************************************************/
+function Main() {  
+  WaitForInitializationComplete();
+  nax.NumberOfSources = MAX_SOURCES;
+  nax.NumberOfZones = MAX_ZONES;
+  nax.StreamingInputNumber = MAX_SOURCES + 1; 
+  nax.ZoneNumberOffset = Unit * MAX_ZONES;
+  nax.SourceNumberOffset = Unit * MAX_SOURCES;
+  RegisterDelegate(nax, TriggerInit, Init);
+}

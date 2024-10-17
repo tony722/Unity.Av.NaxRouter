@@ -1,0 +1,81 @@
+#DEFINE_CONSTANT MAX_ZONES 192
+/*
+Programmer: Anthony Evert
+Contact: tony722@gmail.com / 509-690-5360
+*/
+
+/*******************************************************************************************
+  Compiler Directives
+*******************************************************************************************/
+// #ENABLE_DYNAMIC
+// #SYMBOL_NAME ""
+// #HINT ""
+// #DEFINE_CONSTANT
+#CATEGORY "46" "Unity Av" // Custom
+// #PRINT_TO_TRACE
+// #DIGITAL_EXPAND OutputsWithParams
+// #ANALOG_SERIAL_EXPAND 
+// #OUTPUT_SHIFT 
+// #HELP_PDF_FILE ""
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+// #ENABLE_TRACE
+// #ENCODING_ASCII
+// #ENCODING_UTF16
+// #ENCODING_INHERIT_FROM_PARENT
+// #ENCODING_INHERIT_FROM_PROGRAM
+/*
+#HELP_BEGIN
+
+#HELP_END
+*/
+
+/*******************************************************************************************
+  Include Libraries
+*******************************************************************************************/
+#USER_SIMPLSHARP_LIBRARY "AET.Unity.Av.NaxRouter"
+
+/*******************************************************************************************
+  DIGITAL, ANALOG and SERIAL INPUTS and OUTPUTS
+*******************************************************************************************/
+DIGITAL_INPUT _Skip_, _Skip_;
+DIGITAL_INPUT Initialize;
+ANALOG_INPUT Source_For_Zone[MAX_ZONES];
+
+DIGITAL_OUTPUT _Skip_, _Skip_;
+
+/*******************************************************************************************
+  Parameters
+*******************************************************************************************/
+STRING_PARAMETER Multicast_Subnet[100];
+#BEGIN_PARAMETER_PROPERTIES Multicast_Subnet
+  propDefaultValue = "239.95.x.x"; 
+#END_PARAMETER_PROPERTIES
+
+/*******************************************************************************************
+  Global Variables
+*******************************************************************************************/
+
+/*******************************************************************************************
+  Functions
+*******************************************************************************************/
+callback function Init() { 
+  //RegisterDelegate(ui, SetSplusRoomName, SetSplusRoomName);
+  //Initialized = 1;
+}
+
+/*******************************************************************************************
+  Event Handlers
+*******************************************************************************************/
+PUSH Initialize { Router.Initialize(); }
+
+CHANGE Source_For_Zone { 
+  integer a; a = GetLastModifiedArrayIndex();
+  Router.RouteSourceToZone(Source_For_Zone[a], a); 
+}
+
+function Main() {  
+  WaitForInitializationComplete(); 
+  Router.MulticastBaseAddress = Multicast_Subnet;
+  //RegisterDelegate(ui, TriggerInit, Init);
+}
