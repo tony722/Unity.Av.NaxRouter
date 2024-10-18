@@ -17,8 +17,8 @@
   Exclusions=1,19,20,21,88,89,167,168,179,213,214,215,216,217,225,226,248,249,266,267,310,362,378,380,405,407,408,409,478,522,537,554,586,590,611,624,718,756,767,830,841,842,854,883,955,1032,1062,1079,1128,1129,1134,1140,1157,1158,1195,1199,1220,1221,1222,1223,1299,1348,1349,1439,1472,1473,1499,1746,1803,1975,2229,2354,2514,2523,2532,2706,2707,3235,3236,3427,3454,3567,3568,3601,3602,3708,3902,3903,3912,3918,3925,3926,4206,4207,
   Exclusions_CDS=5
   Inclusions_CDS=6,7
-  Name=AET Unity Av Nax-4ZSA v1.0.0
-  SmplCName=AET Unity Av Nax-4ZSA v1.0.0.usp
+  Name=AET Unity Av Nax-4ZSP (12x4) v1.0.0
+  SmplCName=AET Unity Av Nax-4ZSP (12x4) v1.0.0.usp
   Code=1
   SysRev5=4.000
   SMWRev=3.00.00
@@ -76,8 +76,14 @@
   OutputList2SigType22=Analog
   OutputList2Cue23=TX_Source_Port[9]
   OutputList2SigType23=Analog
-  OutputList2Cue24=TX_Source_MulticastAddress[#]
-  OutputList2SigType24=Serial
+  OutputList2Cue24=TX_Source_Port[10]
+  OutputList2SigType24=Analog
+  OutputList2Cue25=TX_Source_Port[11]
+  OutputList2SigType25=Analog
+  OutputList2Cue26=TX_Source_Port[12]
+  OutputList2SigType26=Analog
+  OutputList2Cue27=TX_Source_MulticastAddress[#]
+  OutputList2SigType27=Serial
   ParamCue1=[Reference Name]
   ParamCue2=First_Zone_Number
   ParamSigType2=Constant
@@ -89,8 +95,8 @@
   MaxVariableInputsList2=0
   MinVariableOutputs=2
   MaxVariableOutputs=2
-  MinVariableOutputsList2=32
-  MaxVariableOutputsList2=32
+  MinVariableOutputsList2=38
+  MaxVariableOutputsList2=38
   MinVariableParams=2
   MaxVariableParams=2
   Expand=expand_separately
@@ -117,9 +123,9 @@
   SmplCOutputCue1=i#
   SmplCInputList2Cue1=an#
   SmplCOutputList2Cue1=ai#
-  SPlus2CompiledName=S2_AET_Unity_Av_Nax_4ZSA_v1_0_0
+  SPlus2CompiledName=S2_AET_Unity_Av_Nax_4ZSP__12x4__v1_0_0
   SymJam=NonExclusive
-  FileName=AET Unity Av Nax-4ZSA v1.0.0.ush
+  FileName=AET Unity Av Nax-4ZSP (12x4) v1.0.0.ush
   SIMPLPlusModuleEncoding=0
   clz1=AET.Unity.Av.NaxRouter
 [END]

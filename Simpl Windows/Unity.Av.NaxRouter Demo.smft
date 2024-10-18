@@ -1,8 +1,0 @@
-<Device Model="MC3" Name="MC3.">
-   <Network Type="Cresnet" Id="01"/>
-   <Network Type="Ethernet" Id="02">
-      <Device Model="DM-NAX-8ZSA" DeviceId="31" Name="DM-NAX-8ZSA / nax001"/>
-      <Device Model="DM-NAX-8ZSA" DeviceId="32" Name="DM-NAX-8ZSA / nax002"/>
-   </Network>
-   <Network Type="RF" Id="03"/>
-</Device>

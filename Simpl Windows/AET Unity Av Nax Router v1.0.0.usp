@@ -1,4 +1,4 @@
-#DEFINE_CONSTANT MAX_ZONES 192
+#DEFINE_CONSTANT MAX_ZONES 250
 /*
 Programmer: Anthony Evert
 Contact: tony722@gmail.com / 509-690-5360
