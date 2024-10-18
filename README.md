@@ -10,15 +10,22 @@ Automatically handles starting and stopping streaming, local vs streamed sources
 Download the latest release: [AET Unity AV NaxRouter v1.0.0](https://github.com/tony722/Unity.Av.NaxRouter/releases/download/v1.0.0/Unity.Av.NaxRouter.Demo.1.0.0_compiled.zip)
 
 * Add a single Unity Av Nax Router.umc to your program.
+   ![image](https://github.com/tony722/Unity.Av.NaxRouter/blob/master/Documentation/NAX%20Router%20module.png?raw=true)
 * Add one Unity Av Nax-8zsa.umc module for each Nax-8zsa, Nax-4zsa, Nax-4zsp in your program. (Supports import of device logic on the Nax-8zsa making programming super easy!*)
-* Configure the start zone and start source parameters: 
+
+   ![image](https://github.com/tony722/Unity.Av.NaxRouter/blob/master/Documentation/NAX%204ZSA%20module.png?raw=true)
+* Configure the start zone and start source parameters. For example, 3x DM-NAX-8ZSAs would be as follows:
   * The first Nax will be Zone 1, Source 1. 
   * The second Nax will be Zone 9, Source 17.
-  * The third Nax will be Zone 17, Source 33, etc.
+  * The third Nax will be Zone 17, Source 33.
+  
+* See the demo program for examples. Note, if it makes more sense to you not to use sequential source (or zone) numbers, that is not a problem.
 
-\* *Waiting on Crestron to add support for device-import on the 4zsa, and other NAX switchers.*
+\* *Waiting on Crestron to add support for device-import on the 4ZSA, and other NAX switchers.*
+
+
 
 ## License: Apache License 2.0 - Commercial Use Freely Permitted.
- Please freely use this library in any Crestron application, including for-profit Crestron SIMPL Windows programs that you charge money to sell, and in SIMPL# libraries of your own, including ones you sell.
+ Please freely use this library in any Crestron application, including for-profit Crestron SIMPL Windows programs that you charge money to sell, and in SIMPL# libraries of your own, including ones you sell. _Please contact me through GitHub if you use it and like it—that will help motivate me to keep releasing modules like these._
 
  If you modify the code in this library and feel those changes will enhance the usability of this library to other Crestron programmers, it would be greatly appreciated if you would branch this repository, and issue a pull request back to this repository. Thank you!
