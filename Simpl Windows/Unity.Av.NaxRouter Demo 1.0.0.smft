@@ -1,0 +1,12 @@
+<Device Model="MC3" Name="MC3.">
+   <Network Type="Cresnet" Id="01"/>
+   <Network Type="Ethernet" Id="02">
+      <Device Model="DM-NAX-8ZSA" DeviceId="31" Name="DM-NAX-8ZSA / nax001"/>
+      <Device Model="DM-NAX-8ZSA" DeviceId="32" Name="DM-NAX-8ZSA / nax002"/>
+      <Device Model="DM-NAX-4ZSP" DeviceId="33"/>
+      <Device Model="DM-NAX-4ZSA-50" DeviceId="34"/>
+      <Device Model="DM-NAX-16AIN" DeviceId="35"/>
+      <Device Model="DM-NAX-AMP-X300" DeviceId="36" Name="DM-NAX-AMP-X300-Residential"/>
+   </Network>
+   <Network Type="RF" Id="03"/>
+</Device>

@@ -1,6 +1,6 @@
-#DEFINE_CONSTANT MAX_ZONES 8
-#DEFINE_CONSTANT MAX_SOURCES 16
-#DEFINE_CONSTANT STREAM_INPUT_NUMBER 17
+#DEFINE_CONSTANT MAX_ZONES 4
+#DEFINE_CONSTANT MAX_SOURCES 9
+#DEFINE_CONSTANT STREAM_INPUT_NUMBER 10
 
 /*
 Programmer: Anthony Evert
@@ -10,7 +10,7 @@ Contact: tony722@gmail.com / 509-690-5360
 /*******************************************************************************************
   Compiler Directives
 *******************************************************************************************/
-#CATEGORY "0" // Hidden
+#CATEGORY "46" "Unity Av" // Custom
 #DEFAULT_VOLATILE     
 #ENABLE_STACK_CHECKING
 /*
@@ -30,8 +30,6 @@ Contact: tony722@gmail.com / 509-690-5360
 DIGITAL_INPUT _Skip_, _Skip_;
 
 DIGITAL_OUTPUT _Skip_, _Skip_;
-DIGITAL_OUTPUT Router_Initialized;
-DIGITAL_OUTPUT _Skip_; 
 ANALOG_OUTPUT Routing_Zone[MAX_ZONES];
 ANALOG_OUTPUT _Skip_;
 ANALOG_OUTPUT RX_Zone_Port[MAX_ZONES];
@@ -49,6 +47,7 @@ INTEGER_PARAMETER First_Zone_Number, First_Source_Number;
    propValidUnits = unitDecimal;
    propDefaultUnit = unitDecimal;
    propBounds = 1d, 2048d;
+   propDefaultValue = 1d;
 #END_PARAMETER_PROPERTIES
 
 
@@ -72,7 +71,6 @@ callback function Init() {
 	RegisterDelegate(nax, SetRxZoneMulticastAddress, SetRxZoneMulticastAddress);
 	RegisterDelegate(nax, SetTxSourcePort, SetTxSourcePort);
 	RegisterDelegate(nax, SetTxSourceMulticastAddress, SetTxSourceMulticastAddress);
-  Router_Initialized = 1;
 }
 
 /*******************************************************************************************
