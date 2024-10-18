@@ -1,7 +1,7 @@
-# Unity.Av.NaxRouter (Beta)
+# Unity.Av.NaxRouter (Beta)	
 ## Part of the open source Unity.Framework for Crestron
 ### Version 1.0.0
-Make your life super easy when working with the NAX Switches, like the creatively named DM-NAX-8ZSA! Drop a switcher module on each NAX and use the single Router module to route sources to zones. 
+Make your life _super easy_ when working with the NAX Switches like the DM-NAX-8ZSA! Drop a switcher module on each NAX and use the single Unity NAX Router module to route any source to any zone without having to worry about switching between analog router signals, starting and stopping multicast streams, or figuring out multicast addresses. 
 
 Automatically handles starting and stopping streaming, local vs streamed sources, and everything. Just send an analog value of which source you want to route to which zone and everything magically routes!
 
