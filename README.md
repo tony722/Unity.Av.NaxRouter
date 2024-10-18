@@ -7,7 +7,7 @@ Automatically handles starting and stopping streaming, local vs streamed sources
 
 
 ## To Use In SIMPL Windows:
-Download the latest release: [AET Unity AV NaxRouter v1.0.0](https://github.com/tony722/Unity.Relays/releases/download/v1.0.5/AET.Unity.Relays.v1.0.5.zip)
+Download the latest release: [AET Unity AV NaxRouter v1.0.0](https://github.com/tony722/Unity.Av.NaxRouter/releases/download/v1.0.0/Unity.Av.NaxRouter.Demo.1.0.0_compiled.zip)
 
 * Add a single Unity Av Nax Router.umc to your program.
 * Add one Unity Av Nax-8zsa.umc module for each Nax-8zsa, Nax-4zsa, Nax-4zsp in your program. (Supports import of device logic on the Nax-8zsa making programming super easy!*)
