@@ -11,7 +11,7 @@ Download the latest release: [AET Unity AV NaxRouter v1.0.0](https://github.com/
 
 * Add a single Unity Av Nax Router.umc to your program.
    ![image](https://github.com/tony722/Unity.Av.NaxRouter/blob/master/Documentation/NAX%20Router%20module.png?raw=true)
-* Add one Unity Av Nax-8zsa.umc module for each Nax-8zsa, Nax-4zsa, Nax-4zsp in your program. (Supports import of device logic on the Nax-8zsa making programming super easy!*)
+* Add one Unity Av Nax-****  module for each NAX Switcher in your program (NAX-8ZSA, NAX-4ZSA, or NAX-4ZSP). The NAX-8ZSA supports import of device logic in SIMPL Windows Nax-8zsa making programming super easy!*
 
    ![image](https://github.com/tony722/Unity.Av.NaxRouter/blob/master/Documentation/NAX%204ZSA%20module.png?raw=true)
 * Configure the start zone and start source parameters. For example, 3x DM-NAX-8ZSAs would be as follows:
