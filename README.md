@@ -1,4 +1,4 @@
-# Unity.Av.NaxRouter (Beta)  
+# Unity.Av.NaxRouter
 ## Part of the open-source Unity.Framework for Crestron  
 ### Version 1.0.0
 
