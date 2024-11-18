@@ -198,3 +198,7 @@
   LR=1d
   HR=2048d
 [END]
+[BEGIN]
+ObjTp=Status
+HeaderCompatible=False
+[END]

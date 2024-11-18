@@ -34,6 +34,14 @@ namespace Unity.Av.NaxRouter.Tests {
     }
 
     [TestMethod]
+    public void RouteSourceToZone_Zero_RoutesToZero() {
+      nax1.RouteSourceToZone(0,1);
+      nax1.Routes[1].Should().Be(0);
+      nax1.ZoneMulticastAddresses[1].Should().Be("0.0.0.0");
+
+    }
+
+    [TestMethod]
     public void RouteSourceToZone_RemoteSource_DoesRemoteRoute() {
       nax2.RouteSourceToZone(2, 7);
       nax2.Routes[7].Should().Be(17);

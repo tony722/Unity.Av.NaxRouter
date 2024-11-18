@@ -108,7 +108,7 @@ namespace AET.Unity.Av.NaxRouter {
     }
 
     private bool IsLocalSource(NaxSource source) {
-      return source.SourceNumber > SourceNumberOffset && source.SourceNumber <= (SourceNumberOffset + NumberOfSources);
+      return source.SourceNumber == 0 || (source.SourceNumber > SourceNumberOffset && source.SourceNumber <= (SourceNumberOffset + NumberOfSources));
     }
     #endregion
 

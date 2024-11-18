@@ -9,6 +9,7 @@ namespace AET.Unity.Av.NaxRouter {
     private static string multicastBaseAddress;
     private static readonly ConcurrentDictionary<int, NaxZone> zones = new ConcurrentDictionary<int, NaxZone>();
     private static readonly ConcurrentDictionary<int, NaxSource> sources = new ConcurrentDictionary<int, NaxSource>();
+    private static bool initialized = false;
 
     #region Constructors
     static Router() { AddZeroSource(); }
@@ -19,6 +20,7 @@ namespace AET.Unity.Av.NaxRouter {
     /// </summary>
     public static void Initialize() {
       if (Initialized != null) Initialized(null, EventArgs.Empty);
+      initialized = true;
     }
     #endregion 
 
@@ -109,8 +111,8 @@ namespace AET.Unity.Av.NaxRouter {
     }
 
     public static void RouteSourceToZone(ushort sourceNumber, ushort zoneNumber) {
-      if (zoneNumber == 0) return;
-      zones[zoneNumber].Route(sources[sourceNumber]);
+      if (zoneNumber == 0 || !initialized) return;
+      Zones[zoneNumber].Route(sources[sourceNumber]);
     }
 
     public static event EventHandler Initialized;
